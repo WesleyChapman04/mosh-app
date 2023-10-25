@@ -23,7 +23,7 @@ export default function RootLayout({
                 <Theme>
                     <Nav />
 
-                    {children}
+                    <main className='p-5'>{children}</main>
                 </Theme>
             </body>
         </html>
