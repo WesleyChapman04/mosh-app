@@ -27,3 +27,5 @@ export default async function DetailPage({ params }: Props) {
         </Grid>
     )
 }
+
+const dynamic = 'force-dynamic'

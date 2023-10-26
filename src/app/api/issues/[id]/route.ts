@@ -1,6 +1,6 @@
 import { IssueSchema } from "@/app/ValidationShema";
-import { NextRequest, NextResponse } from "next/server";
 import prisma from "../../../../../prisma/client";
+import { NextRequest, NextResponse } from "next/server";
 
 
 export async function PATCH(request: NextRequest, { params}: { params: { id: string}}) {
@@ -17,10 +17,11 @@ export async function PATCH(request: NextRequest, { params}: { params: { id: str
     if (!issue) 
         return NextResponse.json({ error: 'Invalid Issue'}, { status: 404 })
     
-    const updatedIssue = prisma.issue.update({
+    const updatedIssue = await prisma.issue.update({
         where: { id: issue.id },
         data: { title: body.title, description: body.description}
     })
 
     return NextResponse.json(updatedIssue)
 }
+
