@@ -1,7 +1,5 @@
 import { Status } from '@prisma/client'
 import { Badge } from '@radix-ui/themes'
-import React from 'react'
-import { record } from 'zod'
 
 const statusMap: Record<
     Status,
