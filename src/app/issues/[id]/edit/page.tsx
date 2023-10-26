@@ -4,12 +4,12 @@ import prisma from '../../../../../prisma/client'
 import { notFound } from 'next/navigation'
 
 interface Props {
-    params: string
+    params: { id: string }
 }
 
 export default async function page({ params }: Props) {
     const issue = await prisma.issue.findUnique({
-        where: { id: parseInt(params) },
+        where: { id: parseInt(params.id) },
     })
 
     if (!issue) {
