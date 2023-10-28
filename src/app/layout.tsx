@@ -5,6 +5,7 @@ import { Inter } from 'next/font/google'
 import Nav from './Nav'
 import './globals.css'
 import './theme-config.css'
+import Provider from './auth/Provider'
 
 const inter = Inter({
     subsets: ['latin'],
@@ -25,12 +26,14 @@ export default function RootLayout({
     return (
         <html lang='en'>
             <body className={inter.variable}>
-                <Theme appearance='light' accentColor='violet'>
-                    <Nav />
-                    <main className='p-5'>
-                        <Container>{children}</Container>
-                    </main>
-                </Theme>
+                <Provider>
+                    <Theme appearance='light' accentColor='violet'>
+                        <Nav />
+                        <main className='p-5'>
+                            <Container>{children}</Container>
+                        </main>
+                    </Theme>
+                </Provider>
             </body>
         </html>
     )
