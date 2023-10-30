@@ -2,8 +2,7 @@
 import { User } from '@prisma/client'
 import { Select } from '@radix-ui/themes'
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
-import { set } from 'zod'
+import { useEffect, useState } from 'react'
 
 export default function UserSelect() {
     const [users, setUsers] = useState<User[]>([])

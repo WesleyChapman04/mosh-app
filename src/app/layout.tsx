@@ -6,6 +6,8 @@ import Nav from './Nav'
 import './globals.css'
 import './theme-config.css'
 import Provider from './auth/Provider'
+import { Query } from '@tanstack/react-query'
+import QueryClientProvider from './QueryClientProvider'
 
 const inter = Inter({
     subsets: ['latin'],
@@ -26,14 +28,16 @@ export default function RootLayout({
     return (
         <html lang='en'>
             <body className={inter.variable}>
-                <Provider>
-                    <Theme appearance='light' accentColor='violet'>
-                        <Nav />
-                        <main className='p-5'>
-                            <Container>{children}</Container>
-                        </main>
-                    </Theme>
-                </Provider>
+                <QueryClientProvider>
+                    <Provider>
+                        <Theme appearance='light' accentColor='violet'>
+                            <Nav />
+                            <main className='p-5'>
+                                <Container>{children}</Container>
+                            </main>
+                        </Theme>
+                    </Provider>
+                </QueryClientProvider>
             </body>
         </html>
     )
