@@ -2,7 +2,6 @@
 import { Status } from '@prisma/client'
 import { Select } from '@radix-ui/themes'
 import { useRouter } from 'next/navigation'
-import React from 'react'
 
 export default function IssueStatusFilter() {
     const statuses: { label: string; value?: Status }[] = [
@@ -21,7 +20,9 @@ export default function IssueStatusFilter() {
             <Select.Trigger placeholder='Filter by Status' />
             <Select.Content>
                 {statuses.map((status) => (
-                    <Select.Item key={status.value} value={status.value || ''}>
+                    <Select.Item
+                        key={status.value || ''}
+                        value={status.value || ''}>
                         {status.label}
                     </Select.Item>
                 ))}
